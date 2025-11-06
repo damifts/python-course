@@ -30,6 +30,8 @@ def main() -> None:
     root.mainloop()
 
 
-# Avvio automatico: quando VS Code esegue il file viene lanciata la GUI.
-# (rimosso il guard `if __name__ == "__main__"` su richiesta didattica)
-main()
+# Sicurezza: evitare l'avvio automatico quando il modulo viene importato.
+# Questa guardia è utile per non lanciare la GUI accidentalmente se
+# il modulo viene importato da altri script o durante i test.
+if __name__ == "__main__":
+    main()
